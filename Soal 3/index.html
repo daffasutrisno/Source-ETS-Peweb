@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Kontak</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="form-container" id="formContainer">
+      <h2>Form Kontak</h2>
+      <form id="contactForm">
+        <!-- Input Nama -->
+        <div class="form-group">
+          <label for="name">Nama :</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Masukkan nama Anda"
+          />
+        </div>
+
+        <!-- Input Email -->
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Masukkan email Anda"
+          />
+          <span class="error-email" id="emailError"></span>
+        </div>
+
+        <!-- Input Nomor Telepon -->
+        <div class="form-group">
+          <label for="phone">Nomor Telepon :</label>
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            required
+            placeholder="Masukkan nomor telepon Anda"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+          />
+          <span class="error-phone" id="phoneError"></span>
+        </div>
+
+        <!-- Text Area Pesan -->
+        <div class="form-group">
+          <label for="message">Pesan :</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tulis pesan Anda..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- Submit dan Reset -->
+        <div class="btn-group">
+          <button type="submit">Kirim</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Kontainer Rincian Pesan -->
+    <div class="result-container" id="resultContainer">
+      <h2>Rincian Data Anda</h2>
+      <table>
+        <tr>
+          <th>Label</th>
+          <th>Data</th>
+        </tr>
+        <tr>
+          <td>Nama :</td>
+          <td id="resultName"></td>
+        </tr>
+        <tr>
+          <td>Email :</td>
+          <td id="resultEmail"></td>
+        </tr>
+        <tr>
+          <td>Nomor Telepon :</td>
+          <td id="resultPhone"></td>
+        </tr>
+        <tr>
+          <td>Pesan :</td>
+          <td id="resultMessage"></td>
+        </tr>
+      </table>
+      <button onclick="goBack()">Kembali</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
